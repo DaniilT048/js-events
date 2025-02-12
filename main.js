@@ -35,17 +35,23 @@ function handleButtonClick(buttonId, message) {
  * Мета: Створити функцію trackMousePosition, яка встановлює обробник події для відстеження руху миші по документу та виводить в консоль координати курсору миші (X та Y).
  *
  * Вимоги до реалізації:
- * 1. Функціональність: Функція має відслідковувати рух миші по документу. При кожному русі миші функція має виводити в консоль координати clientX та clientY, які представляють позицію курсору відносно вікна переглядача.
+ * 1. Функціональність: Функція має відслідковувати рух миші по документу.
+ * При кожному русі миші функція має виводити в консоль координати clientX та clientY, які представляють позицію курсору відносно вікна переглядача.
  * 2. Реєстрація обробника події: Функція має використовувати document.addEventListener для реєстрації обробника події mousemove.
  * 3. Вивід даних: При спрацьовуванні події mousemove, функція має виводити рядок у форматі `"Mouse X: [X], Mouse Y: [Y]"`, де `[X]` та `[Y]` - це відповідні координати курсору миші.
  *
  */
 
 function trackMousePosition() {
-  // code here
+  document.addEventListener('mousemove', function (event) {
+        const viewPortX = event.clientX;
+        const viewPortY = event.clientY;
+        const mouseCord = event.target.getBoundingClientRect();
+        console.log('Mouse X:', [viewPortX - mouseCord.x], 'Mouse Y:', [viewPortY - mouseCord.y]);
+    });
 }
 
-// console.log(trackMousePosition())
+trackMousePosition()
 
 /*
  * #3
