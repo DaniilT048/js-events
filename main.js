@@ -19,8 +19,8 @@ console.log('#9. JavaScript homework example file')
  */
 
 function handleButtonClick(buttonId, message) {
-    let button = document.getElementById(buttonId);
-    button.addEventListener('click', function () {
+    document.getElementById(buttonId)
+    .addEventListener('click', function () {
         console.log(message);
     });
 }
@@ -51,7 +51,7 @@ function trackMousePosition() {
     });
 }
 
-trackMousePosition()
+// trackMousePosition()
 
 /*
  * #3
@@ -78,10 +78,16 @@ trackMousePosition()
 // createTestList()
 
 function setupEventDelegation(selector) {
-  // code here
+    const list = document.getElementById(selector);
+     list.addEventListener('click', function (item) {
+         if(item.target.tagName === 'LI') {
+             console.log(`Item clicked: ${item.target.textContent}`)
+         }
+  })
+
 }
 
-// setupEventDelegation('#testList')
+setupEventDelegation('testList')
 
 // Експорт функції для використання та тестування
 // export { handleButtonClick, trackMousePosition, setupEventDelegation }
