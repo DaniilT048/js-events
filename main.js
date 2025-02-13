@@ -81,7 +81,7 @@ function setupEventDelegation(selector) {
     const list = document.getElementById(selector);
      list.addEventListener('click', function (item) {
          if(item.target.tagName === 'LI') {
-             console.log(`Item clicked: ${item.target.textContent}`)
+             console.log(`Item clicked: [${item.target.textContent}]`)
          }
   })
 
